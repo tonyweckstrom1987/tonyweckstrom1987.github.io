@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tony Weckström — Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- NAVIGAATIO -->
+<nav>
+  <div class="nav-logo">TW</div>
+  <ul class="nav-links">
+    <li><a href="#about" data-fi="Tietoa" data-en="About">Tietoa</a></li>
+    <li><a href="#skills" data-fi="Taidot" data-en="Skills">Taidot</a></li>
+    <li><a href="#projects" data-fi="Projektit" data-en="Projects">Projektit</a></li>
+    <li><a href="#experience" data-fi="Kokemus" data-en="Experience">Kokemus</a></li>
+    <li><a href="#contact" data-fi="Yhteystiedot" data-en="Contact">Yhteystiedot</a></li>
+  </ul>
+  <button class="lang-btn" id="langBtn" onclick="toggleLang()">EN</button>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <p class="hero-greeting" data-fi="Hei, olen" data-en="Hi, I'm">Hei, olen</p>
+      <h1 class="hero-name">Tony Weckström</h1>
+      <p class="hero-title" data-fi="Ohjelmistokehittäjä (opiskelija)" data-en="Software Developer (student)">Ohjelmistokehittäjä (opiskelija)</p>
+      <p class="hero-desc" data-fi="Opiskelen ohjelmistokehittäjäksi Taitotalossa ja suuntaudun web-kehitykseen. Tavoitteenani on IT-insinöörin tutkinto Metropolia AMK:ssa." data-en="I'm studying software development at Taitotalo, focusing on web development. My goal is to become an IT engineer at Metropolia University of Applied Sciences.">
+        Opiskelen ohjelmistokehittäjäksi Taitotalossa ja suuntaudun web-kehitykseen. Tavoitteenani on IT-insinöörin tutkinto Metropolia AMK:ssa.
+      </p>
+      <div class="hero-btns">
+        <a href="#projects" class="btn btn-primary" data-fi="Katso projektit" data-en="See projects">Katso projektit</a>
+        <a href="#contact" class="btn btn-secondary" data-fi="Ota yhteyttä" data-en="Contact me">Ota yhteyttä</a>
+      </div>
+    </div>
+    <div class="hero-img-wrap">
+      <!-- Lisää oma kuva: vaihda "kuva.jpg" oikeaan tiedostonnimeen -->
+      <img src="kuva.png" alt="Tony Weckström" onerror="this.src='https://ui-avatars.com/api/?name=Tony+Weckstrom&background=161b22&color=58a6ff&size=210'" />
+    </div>
+  </div>
+</section>
+
+<!-- TIETOA MINUSTA -->
+<section id="about">
+  <h2 class="section-title" data-fi="Tietoa minusta" data-en="About me">Tietoa minusta</h2>
+  <p class="about-text" data-fi="Olen helsinkiläinen ohjelmistokehittäjäopiskelija Taitotalossa. Hoitoalalta IT-alalle siirtyminen on ollut luonteva askel — molemmissa aloissa korostuu kyky asettua toisen asemaan ja ratkaista ongelmia käytännönläheisesti. Minulla on vahva kokemus vaativissa ympäristöissä työskentelystä ja olen tottunut toimimaan sekä itsenäisesti että tiimissä. Web-kehitys kiinnostaa minua erityisesti, mutta olen avoin myös muille IT-alan mahdollisuuksille. Valmistun ohjelmistokehittäjäksi maaliskuussa 2028 ja tavoitteenani on jatkaa IT-insinööriopintoihin Metropolia AMK:ssa." data-en="I'm a software development student from Helsinki, studying at Taitotalo. Moving from healthcare to IT has been a natural step — both fields require the ability to empathize with others and solve problems practically. I have strong experience working in demanding environments, both independently and in teams. I'm particularly interested in web development, but I'm open to other IT opportunities as well. I will graduate as a software developer in March 2028, with the goal of continuing to a Bachelor's degree in IT engineering at Metropolia UAS.">
+    Olen helsinkiläinen ohjelmistokehittäjäopiskelija Taitotalossa. Hoitoalalta IT-alalle siirtyminen on ollut luonteva askel — molemmissa aloissa korostuu kyky asettua toisen asemaan ja ratkaista ongelmia käytännönläheisesti. Minulla on vahva kokemus vaativissa ympäristöissä työskentelystä ja olen tottunut toimimaan sekä itsenäisesti että tiimissä. Web-kehitys kiinnostaa minua erityisesti, mutta olen avoin myös muille IT-alan mahdollisuuksille. Valmistun ohjelmistokehittäjäksi maaliskuussa 2028 ja tavoitteenani on jatkaa IT-insinööriopintoihin Metropolia AMK:ssa.
+  </p>
+</section>
+
+<!-- TAIDOT -->
+<section id="skills">
+  <h2 class="section-title" data-fi="Taidot" data-en="Skills">Taidot</h2>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-icon">🌐</div>
+      <div class="skill-name">HTML5</div>
+      <div class="skill-level" data-fi="Perusosaaminen" data-en="Basic">Perusosaaminen</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🎨</div>
+      <div class="skill-name">CSS3</div>
+      <div class="skill-level" data-fi="Perusosaaminen" data-en="Basic">Perusosaaminen</div>
+    </div>
+    <div class="skill-card" style="opacity:0.5;">
+      <div class="skill-icon">⚡</div>
+      <div class="skill-name">JavaScript</div>
+      <div class="skill-level" data-fi="Tulossa 2026" data-en="Coming 2026">Tulossa 2026</div>
+    </div>
+    <div class="skill-card" style="opacity:0.5;">
+      <div class="skill-icon">⚛️</div>
+      <div class="skill-name">React</div>
+      <div class="skill-level" data-fi="Tulossa 2027" data-en="Coming 2027">Tulossa 2027</div>
+    </div>
+    <div class="skill-card" style="opacity:0.5;">
+      <div class="skill-icon">🗄️</div>
+      <div class="skill-name">SQL</div>
+      <div class="skill-level" data-fi="Tulossa 2026" data-en="Coming 2026">Tulossa 2026</div>
+    </div>
+    <div class="skill-card" style="opacity:0.5;">
+      <div class="skill-icon">🐍</div>
+      <div class="skill-name">Node.js</div>
+      <div class="skill-level" data-fi="Tulossa 2027" data-en="Coming 2027">Tulossa 2027</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJEKTIT -->
+<section id="projects">
+  <h2 class="section-title" data-fi="Projektit" data-en="Projects">Projektit</h2>
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="project-title" data-fi="Avaruusportfolio" data-en="Space Portfolio">Avaruusportfolio</div>
+      <p class="project-desc" data-fi="Avaruusteemainen henkilökohtainen verkkosivusto. Video-tausta, animoitu navigointi ja responsiivinen rakenne." data-en="Space-themed personal website. Video background, animated navigation and responsive layout.">
+        Avaruusteemainen henkilökohtainen verkkosivusto. Video-tausta, animoitu navigointi ja responsiivinen rakenne.
+      </p>
+      <div class="project-tags">
+        <span class="tag">HTML</span>
+        <span class="tag">CSS</span>
+      </div>
+      <div class="project-links">
+        <a href="https://github.com/tonyweckstrom1987" target="_blank">⬡ GitHub</a>
+      </div>
+    </div>
+    <div class="project-card" style="opacity:0.5; border-style: dashed;">
+      <div class="project-title" data-fi="Lisää projekteja tulossa..." data-en="More projects coming...">Lisää projekteja tulossa...</div>
+      <p class="project-desc" data-fi="JavaScript, React, SQL ja paljon muuta — 2026-2027" data-en="JavaScript, React, SQL and much more — 2026-2027">
+        JavaScript, React, SQL ja paljon muuta — 2026-2027
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- KOKEMUS -->
+<section id="experience">
+  <h2 class="section-title" data-fi="Kokemus" data-en="Experience">Kokemus</h2>
+
+  <h3 style="color: var(--text-dim); font-size:0.9rem; text-transform:uppercase; letter-spacing:1px; margin-bottom:1.5rem;" data-fi="Koulutus" data-en="Education">Koulutus</h3>
+
+  <div class="edu-card">
+    <div>
+      <div class="edu-name" data-fi="Ohjelmistokehittäjä" data-en="Software Developer">Ohjelmistokehittäjä</div>
+      <div class="edu-school">Taitotalo</div>
+    </div>
+    <div class="edu-year">2026 → 2028</div>
+  </div>
+  <div class="edu-card">
+    <div>
+      <div class="edu-name" data-fi="Lähihoitaja" data-en="Practical Nurse">Lähihoitaja</div>
+      <div class="edu-school">Suomen diakoniaopisto</div>
+    </div>
+    <div class="edu-year">2015</div>
+  </div>
+  <div class="edu-card" style="margin-bottom:2.5rem;">
+    <div>
+      <div class="edu-name" data-fi="Hoiva-avustaja" data-en="Care Assistant">Hoiva-avustaja</div>
+      <div class="edu-school">Amiedu</div>
+    </div>
+    <div class="edu-year">2013</div>
+  </div>
+
+  <h3 style="color: var(--text-dim); font-size:0.9rem; text-transform:uppercase; letter-spacing:1px; margin-bottom:1.5rem;" data-fi="Työkokemus" data-en="Work Experience">Työkokemus</h3>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-date">2016 – 2024</div>
+      <div class="timeline-title" data-fi="Kehitysvammaisohjaaja" data-en="Disability Support Worker">Kehitysvammaisohjaaja</div>
+      <div class="timeline-company">SEURE</div>
+      <p class="timeline-desc" data-fi="Työskentely useissa kaupungin ryhmäkodeissa. Lääkintävastaavan tehtävät, vuorotyö, vaativien asiakkaiden kanssa toimiminen." data-en="Working in multiple city group homes. Medication responsibilities, shift work, supporting clients with complex needs.">
+        Työskentely useissa kaupungin ryhmäkodeissa. Lääkintävastaavan tehtävät, vuorotyö, vaativien asiakkaiden kanssa toimiminen.
+      </p>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">2013 – 2015</div>
+      <div class="timeline-title" data-fi="Hoiva-avustaja / Opiskelija" data-en="Care Assistant / Student">Hoiva-avustaja / Opiskelija</div>
+      <div class="timeline-company">Rinnekoti-säätiö</div>
+      <p class="timeline-desc" data-fi="Tuntityöntekijänä aloittaminen, lähihoitajaopinnot työn ohessa oppisopimuksella." data-en="Started as a hourly worker, completed practical nurse studies alongside work via apprenticeship.">
+        Tuntityöntekijänä aloittaminen, lähihoitajaopinnot työn ohessa oppisopimuksella.
+      </p>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">2016 – 2024</div>
+      <div class="timeline-title" data-fi="Omaishoitaja" data-en="Family Carer">Omaishoitaja</div>
+      <div class="timeline-company"></div>
+      <p class="timeline-desc" data-fi="Omaishoitajana toiminen työn ohessa veljelle, jolla on kehitysvamma ja autistiset piirteet." data-en="Acting as a family carer alongside work for a brother with intellectual disability and autistic traits.">
+        Omaishoitajana toiminen työn ohessa veljelle, jolla on kehitysvamma ja autistiset piirteet.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- YHTEYSTIEDOT -->
+<section id="contact">
+  <h2 class="section-title" data-fi="Yhteystiedot" data-en="Contact">Yhteystiedot</h2>
+  <div class="contact-grid">
+    <a href="mailto:tony.weckstrom1987@gmail.com" class="contact-card">
+      <span class="contact-icon">✉️</span>
+      <div>
+        <div class="contact-label">Email</div>
+        <div class="contact-value">tony.weckstrom1987@gmail.com</div>
+      </div>
+    </a>
+    <a href="https://github.com/tonyweckstrom1987" target="_blank" class="contact-card">
+      <span class="contact-icon">⬡</span>
+      <div>
+        <div class="contact-label">GitHub</div>
+        <div class="contact-value">tonyweckstrom1987</div>
+      </div>
+    </a>
+    <a href="https://www.linkedin.com/in/tony-weckstrom-2a182418b/" target="_blank" class="contact-card">
+      <span class="contact-icon">💼</span>
+      <div>
+        <div class="contact-label">LinkedIn</div>
+        <div class="contact-value">Tony Weckström</div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Tony Weckström</p>
+</footer>
+
+<script>
+  let currentLang = 'fi';
+
+  function toggleLang() {
+    currentLang = currentLang === 'fi' ? 'en' : 'fi';
+    document.getElementById('langBtn').textContent = currentLang === 'fi' ? 'EN' : 'FI';
+    document.documentElement.lang = currentLang;
+
+    document.querySelectorAll('[data-fi]').forEach(el => {
+      el.textContent = el.getAttribute('data-' + currentLang);
+    });
+  }
+</script>
+
+</body>
+</html>
