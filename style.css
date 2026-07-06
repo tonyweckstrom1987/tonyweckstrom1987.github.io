@@ -193,6 +193,37 @@ section {
 .skill-name { font-size: 0.9rem; color: var(--white); font-weight: 600; }
 .skill-level { font-size: 0.75rem; color: var(--green); margin-top: 2px; }
 
+/* SKILLS - Giger-inspired ambient background */
+#skills {
+    position: relative;
+    overflow: hidden;
+}
+
+.skills-bg {
+    position: absolute;
+    top: -15%;
+    left: -10%;
+    width: 120%;
+    height: 130%;
+    z-index: 0;
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.skills-bg .rib-pulse {
+    stroke-dasharray: 14 10;
+    animation: gigerPulse 7s linear infinite;
+}
+
+@keyframes gigerPulse {
+    to { stroke-dashoffset: -240; }
+}
+
+.skills-grid {
+    position: relative;
+    z-index: 1;
+}
+
 /* PROJECTS */
 .projects-grid {
   display: grid;
