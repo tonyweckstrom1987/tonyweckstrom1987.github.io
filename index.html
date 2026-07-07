@@ -5,6 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tony Weckström — Portfolio</title>
   <link rel="stylesheet" href="style.css" />
+  <script>
+    (function() {
+      if (localStorage.getItem('theme') === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
 </head>
 <body>
 
@@ -18,7 +25,10 @@
     <li><a href="#experience" data-fi="Kokemus" data-en="Experience">Kokemus</a></li>
     <li><a href="#contact" data-fi="Yhteystiedot" data-en="Contact">Yhteystiedot</a></li>
   </ul>
-  <button class="lang-btn" id="langBtn" onclick="toggleLang()">EN</button>
+  <div class="nav-actions">
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" aria-label="Vaihda teema">🌙</button>
+    <button class="lang-btn" id="langBtn" onclick="toggleLang()">EN</button>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -238,6 +248,24 @@
       el.textContent = el.getAttribute('data-' + currentLang);
     });
   }
+
+  function applyThemeIcon(theme) {
+    document.getElementById('themeBtn').textContent = theme === 'light' ? '☀️' : '🌙';
+  }
+
+  function toggleTheme() {
+    const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+    const newTheme = isLight ? 'dark' : 'light';
+    if (newTheme === 'light') {
+      document.documentElement.setAttribute('data-theme', 'light');
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+    }
+    localStorage.setItem('theme', newTheme);
+    applyThemeIcon(newTheme);
+  }
+
+  applyThemeIcon(document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark');
 </script>
 
 </body>
