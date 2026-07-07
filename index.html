@@ -26,7 +26,7 @@
     <li><a href="#contact" data-fi="Yhteystiedot" data-en="Contact">Yhteystiedot</a></li>
   </ul>
   <div class="nav-actions">
-    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" aria-label="Vaihda teema">🌙</button>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" data-fi="Vaihda teema" data-en="Switch theme" data-i18n-attr="aria-label" aria-label="Vaihda teema">🌙</button>
     <button class="lang-btn" id="langBtn" onclick="toggleLang()">EN</button>
   </div>
 </nav>
@@ -245,7 +245,13 @@
     document.documentElement.lang = currentLang;
 
     document.querySelectorAll('[data-fi]').forEach(el => {
-      el.textContent = el.getAttribute('data-' + currentLang);
+      const value = el.getAttribute('data-' + currentLang);
+      const targetAttr = el.getAttribute('data-i18n-attr');
+      if (targetAttr) {
+        el.setAttribute(targetAttr, value);
+      } else {
+        el.textContent = value;
+      }
     });
   }
 
