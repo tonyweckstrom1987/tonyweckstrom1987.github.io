@@ -375,10 +375,75 @@ footer {
   font-size: 0.85rem;
 }
 
+/* INTERN BANNER */
+.intern-banner {
+  margin-top: 60px;
+  background: var(--bg2);
+  border-bottom: 1px solid var(--border);
+  padding: 0.9rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  text-align: center;
+}
+.intern-banner-text { color: var(--text); font-size: 0.9rem; }
+.intern-banner-btns { display: flex; gap: 0.6rem; flex-wrap: wrap; justify-content: center; }
+.btn-sm { padding: 6px 16px; font-size: 0.82rem; }
+.intern-banner + #hero { padding-top: 2rem; }
+
+/* DATA TABLES (kirjoitukset) */
+.table-wrap { overflow-x: auto; margin: 1.5rem 0; }
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+.data-table caption {
+  text-align: left;
+  color: var(--text-dim);
+  font-size: 0.78rem;
+  margin-bottom: 0.5rem;
+}
+.data-table th, .data-table td {
+  border: 1px solid var(--border);
+  padding: 0.6rem 0.8rem;
+  text-align: left;
+}
+.data-table th { background: var(--bg2); color: var(--white); font-weight: 600; }
+.data-table td { color: var(--text); }
+.data-table tbody tr:nth-child(even) { background: var(--bg2); }
+
+/* DEMO / TERMINAL BLOCK */
+.demo-label {
+  display: block;
+  color: var(--accent);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 1rem 0 0.5rem;
+}
+.demo-block {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.76rem;
+  line-height: 1.5;
+  color: var(--text-dim);
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.demo-block .demo-prompt { color: var(--green); }
+
 /* RESPONSIVE */
 @media (max-width: 600px) {
   .nav-links { display: none; }
   .hero-inner { flex-direction: column-reverse; text-align: center; }
   .hero-btns { justify-content: center; }
   .hero-img-wrap img { width: 150px; height: 150px; }
+  .intern-banner { padding: 0.8rem 1rem; }
 }

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rakennuspäiväkirja — Tony Weckström</title>
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    (function() {
+      if (localStorage.getItem('theme') === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
+</head>
+<body>
+
+<!-- NAVIGAATIO -->
+<nav>
+  <a href="index.html" class="nav-logo" style="text-decoration:none;">TW</a>
+  <ul class="nav-links">
+    <li><a href="index.html" data-fi="← Etusivulle" data-en="← Home">← Etusivulle</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" data-fi="Vaihda teema" data-en="Switch theme" data-i18n-attr="aria-label" aria-label="Vaihda teema">🌙</button>
+    <button class="lang-btn" id="langBtn" onclick="toggleLang()">EN</button>
+  </div>
+</nav>
+
+<section>
+  <p><a href="index.html" data-fi="← Takaisin etusivulle" data-en="← Back to homepage">← Takaisin etusivulle</a></p>
+
+  <h1 class="section-title" data-fi="Rakennuspäiväkirja" data-en="Build log">Rakennuspäiväkirja</h1>
+  <p class="about-text" style="margin-bottom:2.5rem;" data-fi="Kirjaan tähän oman AI-agenttipalvelimen ja projektien rakennusta. Uusimmat merkinnät ensin." data-en="I log the build of my own AI agent server and projects here. Newest entries first.">
+    Kirjaan tähän oman AI-agenttipalvelimen ja projektien rakennusta. Uusimmat merkinnät ensin.
+  </p>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-date">Syyskuu 2026</div>
+      <div class="timeline-title" data-fi="Kotipalvelinprojekti suunniteltu" data-en="Home server project planned">Kotipalvelinprojekti suunniteltu</div>
+      <p class="timeline-desc" data-fi="Suunnittelin oman kotipalvelimen tekoälyagenteille: pieni PC, Proxmox-virtualisointi LXC-konteilla, Tailscale-verkko ja LiteLLM + Open WebUI palveluina. Raudan asennus alkaa, kun osat saapuvat." data-en="I planned a home server for AI agents: a small PC, Proxmox virtualization with LXC containers, a Tailscale network, and LiteLLM + Open WebUI as services. Hardware setup begins once the parts arrive.">
+        Suunnittelin oman kotipalvelimen tekoälyagenteille: pieni PC, Proxmox-virtualisointi LXC-konteilla, Tailscale-verkko ja LiteLLM + Open WebUI palveluina. Raudan asennus alkaa, kun osat saapuvat.
+      </p>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">Syyskuu 2026</div>
+      <div class="timeline-title" data-fi="mcp-model-router: rinnakkaisajo evaliin" data-en="mcp-model-router: parallel eval runs">mcp-model-router: rinnakkaisajo evaliin</div>
+      <p class="timeline-desc" data-fi="Rakensin ja testasin mcp-model-router-työkalun paikallisesti LiteLLM:n ja OpenRouterin kanssa. Lisäsin run_eval-toimintoon rinnakkaisajon, jotta useamman mallin ja promptin eval-ajot nopeutuvat." data-en="I built and tested mcp-model-router locally with LiteLLM and OpenRouter. I added parallel execution to run_eval so multi-model, multi-prompt eval runs finish faster.">
+        Rakensin ja testasin mcp-model-router-työkalun paikallisesti LiteLLM:n ja OpenRouterin kanssa. Lisäsin run_eval-toimintoon rinnakkaisajon, jotta useamman mallin ja promptin eval-ajot nopeutuvat.
+      </p>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">Syyskuu 2026</div>
+      <div class="timeline-title" data-fi="mcp-server-git-history julkaistu npm:ään ja MCP-rekisteriin" data-en="mcp-server-git-history published to npm and the MCP registry">mcp-server-git-history julkaistu npm:ään ja MCP-rekisteriin</div>
+      <p class="timeline-desc" data-fi="mcp-server-git-history julkaistiin npm:ään versiona 1.1.1 ja viralliseen MCP-rekisteriin nimellä io.github.tonyweckstrom1987/git-history. Palvelin antaa tekoälyagenteille työkalut Git-historian tutkimiseen: commit-haku, tiedoston historia, blame, kontribuuttorit ja diffit." data-en="mcp-server-git-history was published to npm as v1.1.1 and to the official MCP registry as io.github.tonyweckstrom1987/git-history. The server gives AI agents tools for exploring Git history: commit search, file history, blame, contributors and diffs.">
+        mcp-server-git-history julkaistiin npm:ään versiona 1.1.1 ja viralliseen MCP-rekisteriin nimellä io.github.tonyweckstrom1987/git-history. Palvelin antaa tekoälyagenteille työkalut Git-historian tutkimiseen: commit-haku, tiedoston historia, blame, kontribuuttorit ja diffit.
+      </p>
+    </div>
+  </div>
+
+  <p class="about-text" style="font-size:0.8rem; color:var(--text-dim); margin-top:1rem;" data-fi="Uusia merkintöjä lisätään kopioimalla yllä oleva .timeline-item-rakenne." data-en="New entries are added by copying the .timeline-item structure above.">
+    Uusia merkintöjä lisätään kopioimalla yllä oleva .timeline-item-rakenne.
+  </p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Tony Weckström</p>
+</footer>
+
+<script>
+  let currentLang = 'fi';
+
+  function toggleLang() {
+    currentLang = currentLang === 'fi' ? 'en' : 'fi';
+    document.getElementById('langBtn').textContent = currentLang === 'fi' ? 'EN' : 'FI';
+    document.documentElement.lang = currentLang;
+
+    document.querySelectorAll('[data-fi]').forEach(el => {
+      const value = el.getAttribute('data-' + currentLang);
+      const targetAttr = el.getAttribute('data-i18n-attr');
+      if (targetAttr) {
+        el.setAttribute(targetAttr, value);
+      } else {
+        el.textContent = value;
+      }
+    });
+  }
+
+  function applyThemeIcon(theme) {
+    document.getElementById('themeBtn').textContent = theme === 'light' ? '☀️' : '🌙';
+  }
+
+  function toggleTheme() {
+    const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+    const newTheme = isLight ? 'dark' : 'light';
+    if (newTheme === 'light') {
+      document.documentElement.setAttribute('data-theme', 'light');
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+    }
+    localStorage.setItem('theme', newTheme);
+    applyThemeIcon(newTheme);
+  }
+
+  applyThemeIcon(document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark');
+</script>
+
+</body>
+</html>
