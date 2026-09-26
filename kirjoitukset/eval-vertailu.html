@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mitattu malliverrokki: deepseek-v4.1-flash vs qwen3-coder — Tony Weckström</title>
+  <link rel="stylesheet" href="../style.css" />
+  <script>
+    (function() {
+      if (localStorage.getItem('theme') === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
+</head>
+<body>
+
+<!-- NAVIGAATIO -->
+<nav>
+  <a href="../index.html" class="nav-logo" style="text-decoration:none;">TW</a>
+  <ul class="nav-links">
+    <li><a href="../index.html" data-fi="← Etusivulle" data-en="← Home">← Etusivulle</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" data-fi="Vaihda teema" data-en="Switch theme" data-i18n-attr="aria-label" aria-label="Vaihda teema">🌙</button>
+    <button class="lang-btn" id="langBtn" onclick="toggleLang()">EN</button>
+  </div>
+</nav>
+
+<section>
+  <p><a href="../index.html" data-fi="← Takaisin etusivulle" data-en="← Back to homepage">← Takaisin etusivulle</a></p>
+
+  <h1 class="section-title" data-fi="Mitattu malliverrokki: deepseek-v4.1-flash vs qwen3-coder" data-en="Measured model comparison: deepseek-v4.1-flash vs qwen3-coder">Mitattu malliverrokki: deepseek-v4.1-flash vs qwen3-coder</h1>
+  <p class="about-text" style="margin-bottom:2rem; color:var(--text-dim); font-size:0.85rem;" data-fi="Syyskuu 2026 · Eval-ajo mcp-model-router-työkalulla" data-en="September 2026 · Eval run with mcp-model-router">Syyskuu 2026 · Eval-ajo mcp-model-router-työkalulla</p>
+
+  <h2 style="color: var(--text-dim); font-size:0.9rem; text-transform:uppercase; letter-spacing:1px; margin-bottom:1rem; margin-top:2rem;" data-fi="Tausta" data-en="Background">Tausta</h2>
+  <p class="about-text" data-fi="Rakensin mcp-model-router-työkalun — MCP-palvelimen, joka täydentää LiteLLM:ää. Sen run_eval-toiminto ajaa saman promptisarjan usealla mallilla ja raportoi hinnan, viiveen ja läpäisyn per malli. Tätä varten ajoin 20 suomenkielisen promptin sarjan (yleinen, koodaus, kirjoitus ja pilkkominen — 5 promptia per tyyppi) LiteLLM-proxya vasten OpenRouterin kautta kahdella mallilla: deepseek-v4.1-flash ja qwen3-coder." data-en="I built mcp-model-router — an MCP server that complements LiteLLM. Its run_eval feature runs the same set of prompts against multiple models and reports price, latency and pass rate per model. For this I ran a set of 20 Finnish-language prompts (general, coding, writing and decomposition — 5 prompts per type) against a LiteLLM proxy over OpenRouter, on two models: deepseek-v4.1-flash and qwen3-coder.">
+    Rakensin mcp-model-router-työkalun — MCP-palvelimen, joka täydentää LiteLLM:ää. Sen run_eval-toiminto ajaa saman promptisarjan usealla mallilla ja raportoi hinnan, viiveen ja läpäisyn per malli. Tätä varten ajoin 20 suomenkielisen promptin sarjan (yleinen, koodaus, kirjoitus ja pilkkominen — 5 promptia per tyyppi) LiteLLM-proxya vasten OpenRouterin kautta kahdella mallilla: deepseek-v4.1-flash ja qwen3-coder.
+  </p>
+
+  <h2 style="color: var(--text-dim); font-size:0.9rem; text-transform:uppercase; letter-spacing:1px; margin-bottom:1rem; margin-top:2rem;" data-fi="Tulokset" data-en="Results">Tulokset</h2>
+  <p class="about-text" data-fi="Keyword-tarkistuksella (avainsanatarkistus vastauksessa) tulokset olivat seuraavat:" data-en="With a keyword check on the response, the results were:">
+    Keyword-tarkistuksella (avainsanatarkistus vastauksessa) tulokset olivat seuraavat:
+  </p>
+
+  <div class="table-wrap">
+    <table class="data-table">
+      <caption data-fi="Kokonaistulokset (20 promptia, 2 mallia)" data-en="Overall results (20 prompts, 2 models)">Kokonaistulokset (20 promptia, 2 mallia)</caption>
+      <thead>
+        <tr>
+          <th scope="col" data-fi="Malli" data-en="Model">Malli</th>
+          <th scope="col" data-fi="Läpäisy" data-en="Pass rate">Läpäisy</th>
+          <th scope="col" data-fi="Viive (ka.)" data-en="Avg. latency">Viive (ka.)</th>
+          <th scope="col" data-fi="Hinta (ka.)" data-en="Avg. price">Hinta (ka.)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">deepseek-v4.1-flash</th>
+          <td>83 % (15/18)</td>
+          <td>14 802 ms</td>
+          <td>0,000744 USD/kutsu</td>
+        </tr>
+        <tr>
+          <th scope="row">qwen3-coder</th>
+          <td>85 % (17/20)</td>
+          <td>9 887 ms</td>
+          <td>0,000466 USD/kutsu</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="about-text" style="font-size:0.85rem; color:var(--text-dim);" data-fi="deepseek-v4.1-flashilla 2 pilkkomistehtävää sai 60 sekunnin aikakatkaisun eikä tuottanut arvioitavaa vastausta lainkaan, joten ne on jätetty pois nimittäjästä (20 − 2 = 18)." data-en="For deepseek-v4.1-flash, 2 decomposition prompts hit a 60-second timeout and produced no answer to evaluate at all, so they're excluded from the denominator (20 − 2 = 18).">
+    deepseek-v4.1-flashilla 2 pilkkomistehtävää sai 60 sekunnin aikakatkaisun eikä tuottanut arvioitavaa vastausta lainkaan, joten ne on jätetty pois nimittäjästä (20 − 2 = 18).
+  </p>
+
+  <div class="table-wrap">
+    <table class="data-table">
+      <caption data-fi="Tehtävätyypeittäin" data-en="By task type">Tehtävätyypeittäin</caption>
+      <thead>
+        <tr>
+          <th scope="col" data-fi="Tehtävätyyppi" data-en="Task type">Tehtävätyyppi</th>
+          <th scope="col" data-fi="Malli" data-en="Model">Malli</th>
+          <th scope="col" data-fi="Läpäisty" data-en="Passed">Läpäisty</th>
+          <th scope="col" data-fi="Viive ka." data-en="Avg. latency">Viive ka.</th>
+          <th scope="col" data-fi="Hinta ka. (USD)" data-en="Avg. price (USD)">Hinta ka. (USD)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row" rowspan="2" data-fi="Yleinen" data-en="General">Yleinen</th>
+          <td>deepseek-v4.1-flash</td>
+          <td>5/5</td>
+          <td>2 190 ms</td>
+          <td>0,000119</td>
+        </tr>
+        <tr>
+          <td>qwen3-coder</td>
+          <td>5/5</td>
+          <td>5 600 ms</td>
+          <td>0,000159</td>
+        </tr>
+        <tr>
+          <th scope="row" rowspan="2" data-fi="Koodaus" data-en="Coding">Koodaus</th>
+          <td>deepseek-v4.1-flash</td>
+          <td>5/5</td>
+          <td>4 025 ms</td>
+          <td>0,000278</td>
+        </tr>
+        <tr>
+          <td>qwen3-coder</td>
+          <td>5/5</td>
+          <td>3 742 ms</td>
+          <td>0,000188</td>
+        </tr>
+        <tr>
+          <th scope="row" rowspan="2" data-fi="Kirjoitus" data-en="Writing">Kirjoitus</th>
+          <td>deepseek-v4.1-flash</td>
+          <td>3/5</td>
+          <td>7 841 ms</td>
+          <td>0,000416</td>
+        </tr>
+        <tr>
+          <td>qwen3-coder</td>
+          <td>3/5</td>
+          <td>1 567 ms</td>
+          <td>0,000121</td>
+        </tr>
+        <tr>
+          <th scope="row" rowspan="2" data-fi="Pilkkominen" data-en="Decomposition">Pilkkominen</th>
+          <td>deepseek-v4.1-flash</td>
+          <td data-fi="2/5 (+2 aikakatkaisua)" data-en="2/5 (+2 timeouts)">2/5 (+2 aikakatkaisua)</td>
+          <td>45 151 ms</td>
+          <td>0,001867</td>
+        </tr>
+        <tr>
+          <td>qwen3-coder</td>
+          <td>4/5</td>
+          <td>28 640 ms</td>
+          <td>0,001395</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 style="color: var(--text-dim); font-size:0.9rem; text-transform:uppercase; letter-spacing:1px; margin-bottom:1rem; margin-top:2rem;" data-fi="Yhteenveto" data-en="Summary">Yhteenveto</h2>
+  <p class="about-text" data-fi="qwen3-coder oli tässä sarjassa keskimäärin noin puolet nopeampi ja noin 25–30 % halvempi kuin deepseek-v4.1-flash. Käytin myös LLM-tuomaria (tuomarina deepseek itse) laadun arviointiin: deepseek sai keskiarvoksi 4,88 ja qwen3-coder 4,50 asteikolla 1–5. Tätä lukua kannattaa lukea varauksella — tuomari suosii todennäköisesti omaa tyyliään." data-en="In this run, qwen3-coder was on average about twice as fast and roughly 25–30% cheaper than deepseek-v4.1-flash. I also used an LLM judge (deepseek itself as the judge) to rate quality: deepseek scored an average of 4.88 and qwen3-coder 4.50 on a 1–5 scale. That number should be read with caution — the judge likely favors its own style.">
+    qwen3-coder oli tässä sarjassa keskimäärin noin puolet nopeampi ja noin 25–30 % halvempi kuin deepseek-v4.1-flash. Käytin myös LLM-tuomaria (tuomarina deepseek itse) laadun arviointiin: deepseek sai keskiarvoksi 4,88 ja qwen3-coder 4,50 asteikolla 1–5. Tätä lukua kannattaa lukea varauksella — tuomari suosii todennäköisesti omaa tyyliään.
+  </p>
+
+  <h2 style="color: var(--text-dim); font-size:0.9rem; text-transform:uppercase; letter-spacing:1px; margin-bottom:1rem; margin-top:2rem;" data-fi="Rajoitukset" data-en="Limitations">Rajoitukset</h2>
+  <ul class="about-text" style="padding-left:1.2rem;">
+    <li data-fi="Pieni otos: vain 5 promptia per tehtävätyyppi." data-en="Small sample: only 5 prompts per task type.">Pieni otos: vain 5 promptia per tehtävätyyppi.</li>
+    <li data-fi="Yksittäinen ajo, ei toistoja — tulokset voivat vaihdella ajojen välillä." data-en="A single run, no repeats — results can vary between runs.">Yksittäinen ajo, ei toistoja — tulokset voivat vaihdella ajojen välillä.</li>
+    <li data-fi="Avainsanatarkistus arvioi kirjoitustehtäviä huonosti — se ei ymmärrä tyyliä tai sävyä." data-en="Keyword checking evaluates writing tasks poorly — it doesn't understand style or tone.">Avainsanatarkistus arvioi kirjoitustehtäviä huonosti — se ei ymmärrä tyyliä tai sävyä.</li>
+    <li data-fi="Tulokset riippuvat mallien tarkoista versioista ja OpenRouterin senhetkisestä tilanteesta (kuormitus, reititys)." data-en="Results depend on the exact model versions and OpenRouter's state at the time (load, routing).">Tulokset riippuvat mallien tarkoista versioista ja OpenRouterin senhetkisestä tilanteesta (kuormitus, reititys).</li>
+    <li data-fi="LLM-tuomari oli sama malli kuin toinen arvioitavista (deepseek), mikä voi vinouttaa tulosta sen suuntaan." data-en="The LLM judge was the same model as one of the ones being evaluated (deepseek), which may bias the result in its favor.">LLM-tuomari oli sama malli kuin toinen arvioitavista (deepseek), mikä voi vinouttaa tulosta sen suuntaan.</li>
+  </ul>
+
+  <p class="about-text" style="margin-top:2rem;" data-fi="Koodi ja lisätiedot:" data-en="Code and more:">Koodi ja lisätiedot:</p>
+  <p class="project-links"><a href="https://github.com/tonyweckstrom1987/mcp-model-router" target="_blank" rel="noopener">⬡ github.com/tonyweckstrom1987/mcp-model-router</a></p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Tony Weckström</p>
+</footer>
+
+<script>
+  let currentLang = 'fi';
+
+  function toggleLang() {
+    currentLang = currentLang === 'fi' ? 'en' : 'fi';
+    document.getElementById('langBtn').textContent = currentLang === 'fi' ? 'EN' : 'FI';
+    document.documentElement.lang = currentLang;
+
+    document.querySelectorAll('[data-fi]').forEach(el => {
+      const value = el.getAttribute('data-' + currentLang);
+      const targetAttr = el.getAttribute('data-i18n-attr');
+      if (targetAttr) {
+        el.setAttribute(targetAttr, value);
+      } else {
+        el.textContent = value;
+      }
+    });
+  }
+
+  function applyThemeIcon(theme) {
+    document.getElementById('themeBtn').textContent = theme === 'light' ? '☀️' : '🌙';
+  }
+
+  function toggleTheme() {
+    const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+    const newTheme = isLight ? 'dark' : 'light';
+    if (newTheme === 'light') {
+      document.documentElement.setAttribute('data-theme', 'light');
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+    }
+    localStorage.setItem('theme', newTheme);
+    applyThemeIcon(newTheme);
+  }
+
+  applyThemeIcon(document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark');
+</script>
+
+</body>
+</html>

@@ -22,6 +22,7 @@
     <li><a href="#about" data-fi="Tietoa" data-en="About">Tietoa</a></li>
     <li><a href="#skills" data-fi="Taidot" data-en="Skills">Taidot</a></li>
     <li><a href="#projects" data-fi="Projektit" data-en="Projects">Projektit</a></li>
+    <li><a href="#writings" data-fi="Kirjoitukset" data-en="Writings">Kirjoitukset</a></li>
     <li><a href="#experience" data-fi="Kokemus" data-en="Experience">Kokemus</a></li>
     <li><a href="#contact" data-fi="Yhteystiedot" data-en="Contact">Yhteystiedot</a></li>
   </ul>
@@ -30,6 +31,16 @@
     <button class="lang-btn" id="langBtn" onclick="toggleLang()">EN</button>
   </div>
 </nav>
+
+<!-- YHTEYDENOTTO-BANNERI -->
+<div class="intern-banner">
+  <span class="intern-banner-text" data-fi="🎓 Etsin työharjoittelupaikkaa 2027 (AI-infra, backend, terveysteknologia)" data-en="🎓 Looking for an internship in 2027 (AI infra, backend, health tech)">🎓 Etsin työharjoittelupaikkaa 2027 (AI-infra, backend, terveysteknologia)</span>
+  <div class="intern-banner-btns">
+    <a href="mailto:tony.weckstrom1987@gmail.com" class="btn btn-primary btn-sm" data-fi="Ota yhteyttä" data-en="Contact me">Ota yhteyttä</a>
+    <a href="https://www.linkedin.com/in/tony-weckstrom-2a182418b/" target="_blank" rel="noopener" class="btn btn-secondary btn-sm">LinkedIn</a>
+    <a href="https://github.com/tonyweckstrom1987" target="_blank" rel="noopener" class="btn btn-secondary btn-sm">GitHub</a>
+  </div>
+</div>
 
 <!-- HERO -->
 <section id="hero">
@@ -284,6 +295,37 @@
       <div class="project-links">
         <a href="https://github.com/tonyweckstrom1987/mcp-server-git-history" target="_blank">⬡ GitHub</a>
       </div>
+      <span class="demo-label" data-fi="Esimerkkituloste" data-en="Example output">Esimerkkituloste</span>
+      <pre class="demo-block"><span class="demo-prompt">$ npx mcp-server-git-history ./mcp-model-router
+&gt; get_recent_commits({ limit: 3 })</span>
+
+[
+  {
+    "hash": "95e4622",
+    "date": "2026-09-26T10:41:33+03:00",
+    "author": "tonyweckstrom1987",
+    "message": "Lisää rinnakkaisajo run_eval:iin (eval.concurrency) (#6)"
+  },
+  {
+    "hash": "711bef5",
+    "date": "2026-09-26T08:23:51+03:00",
+    "author": "tonyweckstrom1987",
+    "message": "Eval-vertailun README-esimerkki, tehtävätyyppierittely ja tehtävätyyppikohtainen timeout (#5)"
+  },
+  {
+    "hash": "1ec307d",
+    "date": "2026-09-26T07:50:24+03:00",
+    "author": "tonyweckstrom1987",
+    "message": "Merge pull request #4 from tonyweckstrom1987/claude/litellm-mcp-node24-docs-9cbmjd"
+  }
+]
+
+<span class="demo-prompt">&gt; get_contributors({ limit: 5 })</span>
+
+[
+  { "commits": 7, "author": "tonyweckstrom1987" },
+  { "commits": 1, "author": "Claude" }
+]</pre>
     </div>
     <div class="project-card">
       <div class="project-title">mcp-model-router</div>
@@ -351,6 +393,39 @@
     </div>
   </div>
   <p class="projects-note" data-fi="Lisää projekteja tulossa" data-en="More projects coming">Lisää projekteja tulossa</p>
+</section>
+
+<!-- KIRJOITUKSET -->
+<section id="writings">
+  <h2 class="section-title" data-fi="Kirjoitukset" data-en="Writings">Kirjoitukset</h2>
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="project-title" data-fi="Mitattu malliverrokki: deepseek-v4.1-flash vs qwen3-coder" data-en="Measured model comparison: deepseek-v4.1-flash vs qwen3-coder">Mitattu malliverrokki: deepseek-v4.1-flash vs qwen3-coder</div>
+      <p class="project-desc" data-fi="20 suomenkielisen promptin eval-ajo mcp-model-router-työkalulla: hinta, viive ja läpäisy kahdella mallilla, tehtävätyypeittäin eriteltynä." data-en="A 20-prompt Finnish eval run with mcp-model-router: price, latency and pass rate for two models, broken down by task type.">
+        20 suomenkielisen promptin eval-ajo mcp-model-router-työkalulla: hinta, viive ja läpäisy kahdella mallilla, tehtävätyypeittäin eriteltynä.
+      </p>
+      <div class="project-tags">
+        <span class="tag">Eval</span>
+        <span class="tag">LLM</span>
+        <span class="tag">MCP</span>
+      </div>
+      <div class="project-links">
+        <a href="kirjoitukset/eval-vertailu.html" data-fi="Lue kirjoitus →" data-en="Read the article →">Lue kirjoitus →</a>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-title" data-fi="Rakennuspäiväkirja" data-en="Build log">Rakennuspäiväkirja</div>
+      <p class="project-desc" data-fi="Kirjaan tähän oman AI-agenttipalvelimen ja projektien rakennusta." data-en="I log the build of my own AI agent server and projects here.">
+        Kirjaan tähän oman AI-agenttipalvelimen ja projektien rakennusta.
+      </p>
+      <div class="project-tags">
+        <span class="tag" data-fi="Päiväkirja" data-en="Log">Päiväkirja</span>
+      </div>
+      <div class="project-links">
+        <a href="rakennuspaivakirja.html" data-fi="Lue merkinnät →" data-en="Read the entries →">Lue merkinnät →</a>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- KOKEMUS -->
